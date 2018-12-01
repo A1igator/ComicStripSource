@@ -28,11 +28,14 @@ app.post('/upload', upload, (req, res) => {
       res.render("image", {
         img: row.img,
         ori: req.file.path.substring(req.file.path.lastIndexOf("/uploads")),
-        num: row.num
+        num: row.num,
+        title: row.title
       });
     });
   }
 });
+
+console.log("Listening on port 8080");
 
 app.listen(8080);
 

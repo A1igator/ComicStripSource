@@ -1,0 +1,15 @@
+img {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a {
+    font-size: 2em
+}

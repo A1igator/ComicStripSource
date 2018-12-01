@@ -10,28 +10,43 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <link rel="stylesheet" href="FrontEndStyling.css">
+    <link rel="stylesheet" href="/upload.css">
     <title>Coogle</title>
 </head>
 
 <body>
-    <title>Example</title>
     <header>
-        <h1>Coogle</h1>
-        <h1>
+        <h1 id="header">Coogle</h1>
+        <h1 id="header">
             The worlds best search engine.
             *for comics
         </h1>
     </header>
 
-    <body>
-        <header></header>
-    </body>
+    <div class="row">
+        <h1 class="center-align">You Look Most Like This XKCD Comic</h1>
+    </div>
+
+    <div class="row">
+        <h2 class="center-align">{{{title}}}</h2>
+    </div>
+
+    <div class="container">
+        <div class="flex row">
+            <img class="col l4" src="{{{ori}}}" alt="start image">
+            <img class="col l2" src="arrow-right.png" alt="arrow">
+            <div class="col l4 valign-wrapper">
+                <img src="{{{img}}}" alt="xkcd comic">
+            </div>
+        </div>
+    </div>
 
 
-    <img src="{{{ori}}}" alt="start image">
-    <img src="{{{img}}}" alt="xkcd comic">
-    <a href="https://xkcd.com/{{{num}}}/">Original Comic</a>
+    <div class="row center-align">
+        <a href="https://xkcd.com/{{{num}}}/">Original Comic</a>
+    </div>
 </body>
 
 </html>
