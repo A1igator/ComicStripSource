@@ -24,6 +24,10 @@ app.post('/upload', upload, (req, res) => {
     throw new Error('no file');
   } else {
     findShit.findTheShit(req.file.path, (err, diff, row) => {
+      if(err != null){
+        res.render("fuck");
+        return;
+      }
       res.type("text/html");
       res.render("image", {
         img: row.img,
