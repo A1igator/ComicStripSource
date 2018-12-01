@@ -54,7 +54,7 @@ function loadImages(index) {
         return;
     }
     
-    request(`https://xkcd.com/${startIndex}/info.0.json`, function (error, response, body) {
+    request(`https://xkcd.com/${index}/info.0.json`, function (error, response, body) {
         let json = JSON.parse(body);
         console.log(index);
         getDHash(json.img, (hash) => {
