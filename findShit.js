@@ -71,10 +71,10 @@ function getAllTheShitFromTheDatabase(callback) {
     });
 }
 
-findTheShit("./shawn.jpg", (err, diff, id) => {
-    console.log(err);
+/* findTheShit("./shawn.jpg", (err, diff, id) => {
     console.log(diff);
+    console.log(err);
     console.log(id);
-});
+}); */
 
 module.exports.findTheShit = findTheShit;

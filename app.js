@@ -1,15 +1,20 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const moment = require('moment');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
-const dhash = require('dhash-image');
-const find = require('./findShit.js');
+const findShit = require("./findShit.js");
+const upload = multer({ dest: 'public/uploads' }).single('photo');
+const exphbs  = require('express-handlebars');
 
 const app = express();
 
+app.engine('handlebars', exphbs({}));
+app.set('view engine', 'handlebars');
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(cookieParser());
+app.use(express.static('public'));
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -17,24 +22,21 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/upload', upload.single('photo'), (req, res) => {
+app.post('/upload', upload, (req, res) => {
   if (!req.file) {
     throw new Error('no file');
   } else {
-    find.findTheShit(req.file.path, (err, diff, row) => {
-      if (!err) {
-        res.send({
-          img: row.img,
-          title: row.title,
-          year: row.year,
-          month: row.month,
-          day: row.day
-        });
-      }
-    })
+    findShit.findTheShit(req.file.path, (err, diff, row) => {
+      res.type("text/html");
+      res.render("image", {
+        img: row.img,
+        ori: req.file.path.substring(req.file.path.lastIndexOf("/uploads")),
+        num: row.num
+      });
+    });
   }
 });
 
-app.listen('8080');
+app.listen(8080);
 
 module.exports = app;

@@ -1,0 +1,34 @@
+<!doctype html>
+
+<head>
+    <link rel="stylesheet" href="FrontEndStyling.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+</head>
+<title>Coogle</title>
+
+<body>
+    <script source="./displayImage.js"> </script>
+    <header>
+        <h1>Coogle</h1>
+        <h1>
+            The worlds best search engine.
+            *for comics
+        </h1>
+    </header>
+    <ul>
+        <li>
+            <img src="github-logo.png" alt="github-logo">
+        </li>
+        <li>
+            <h1>Please Upload An Image File</h4>
+                <form id="form" action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="photo" value="Chose File"><br>
+                    <input type="submit" value="Submit">
+                </form>
+        </li>
+        <li>
+            <img src="github-logo.png" alt="github-logo">
+        </li>
+    </ul>
+</body>

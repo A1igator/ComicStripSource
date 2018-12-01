@@ -4,13 +4,16 @@
   "description": "upload comic",
   "main": "app.js",
   "repository": "https://github.com/xXAligatorXx/CommitStripSource.git",
-  "author": "Ali Abdoli",
+  "author": "Ali Abdoli, Owen Anderson",
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "dhash-image": "^1.2.1",
     "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
     "jimp": "^0.6.0",
+    "moment": "^2.22.2",
     "multer": "^1.4.1",
     "request": "^2.88.0",
     "sqlite3": "^4.0.4"
