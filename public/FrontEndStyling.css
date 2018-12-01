@@ -8,23 +8,14 @@
      display: flex;
      min-height: calc(100vh - 40vh);
    }
-   #main > article {
-     
-   }
    #main > nav, 
    #main > aside {
      background: blue;
    }
-   #main > nav {
-
-   }
-   #main > aside {
-     
-   }
    input
    {
        height: 40px;
-       width: 120px;
+       width: 300;
        font-size: 14pt;
    }
    form
