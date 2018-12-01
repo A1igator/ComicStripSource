@@ -33,7 +33,12 @@ app.post('/upload', upload.single('photo'), (req, res) => {
   } else {
     const buffer = new Buffer(req.file.path);
     dhash(req.file.path, (err, hash) => {
-      console.log(hash.toString('base64'));
+      if (!err) {
+        console.log(hash.toString('base64'));
+      }
+      else {
+        console.log(err);
+      }
     });
   }
 });
