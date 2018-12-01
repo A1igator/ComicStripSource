@@ -1,46 +1,31 @@
 <!doctype html>
-<title>Example</title>
-<style>
-  * {
-   box-sizing: border-box; 
-  }
-  body {
-    margin: 0;
-  }
-  #main {
-    display: flex;
-    min-height: calc(100vh - 40vh);
-  }
-  #main > article {
-    flex: 1;
-  }
-  #main > nav, 
-  #main > aside {
-    flex: 0 0 20vw;
-    background: beige;
-  }
-  #main > nav {
-    order: -1;
-  }
-  header, footer, article, nav, aside {
-    padding: 1em;
-  }
-  header, footer {
-    background: yellowgreen;
-    height: 20vh;
-  }
-</style>
+<head>
+        <link rel="stylesheet" href="FrontEndStyling.css">
+</head>
+<title>Coogle</title>
+
 <body>
-  <header>Header</header>
-  <div id="main">
-    <article> 
-        <form action="fileupload" method="post" enctype="multipart/form-data">
-        <input type="file" name="filetoupload"><br>
-        <input type="submit">
-        </form>
-    </article>
-    <nav>Nav</nav>
-    <aside>Aside</aside>
-  </div>
+  <header>
+      <h1>Coogle</h1>
+      <h1>
+            The worlds best search engine.
+            *for comics
+        </h1>
+  </header>
+      <ul class = "flex-container">
+            <li>
+                <img src="github-logo.png" alt="github-logo">
+            </li>
+            <li> 
+                    <h3>Please Upload An Image File</h3>
+                    <form action="fileupload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="filetoupload"><br>
+                    <input type="submit">
+                    </form>
+            </li>
+            <li>
+                <img src="github-logo.png" alt="github-logo">
+            </li>
+        </ul>       
   <footer>Footer</footer>
 </body>
