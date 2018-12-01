@@ -9,7 +9,6 @@
      min-height: calc(100vh - 40vh);
    }
    #main > article {
-     flex: 1;
      
    }
    #main > nav, 
@@ -22,6 +21,17 @@
    #main > aside {
      
    }
+   input
+   {
+       height: 40px;
+       width: 120px;
+       font-size: 14pt;
+   }
+   form
+   {
+       height: 50;
+       width: 125px;
+   }
    header, footer, article, nav, aside {
      padding: 1em;
    }
@@ -33,10 +43,10 @@
    ul{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
    }
    li{
     list-style: none;
-    margin:10px;
-    flex-wrap: nowrap
+    flex-wrap: nowrap;
+    flex-grow: 1
    }
