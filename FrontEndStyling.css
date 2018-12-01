@@ -29,7 +29,6 @@
    }
    form
    {
-       height: 50;
        width: 125px;
    }
    header, footer, article, nav, aside {
@@ -43,10 +42,10 @@
    ul{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
    }
    li{
     list-style: none;
     flex-wrap: nowrap;
-    flex-grow: 1
+    flex-grow: 3
    }
