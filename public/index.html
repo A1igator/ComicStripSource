@@ -7,6 +7,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <title>Coogle</title>
 
@@ -16,7 +17,8 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">
                 <img src="CooglePng.png" alt="logo" style="height: 60px; width: auto">
-                <span class="black-text">The World Best Searched Engine. *For Comics</span>
+                <span class="black-text">The World Best Searched Engine.</span><span class="black-text" style="font-size: 35%"> *For XKCD
+                    Comics</span>
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             </ul>
@@ -24,17 +26,27 @@
     </nav>
 
     <div class="row">
-        <div class="col l5">
+        <div class="col l4">
             <img src="github-logo.png" alt="github-logo">
         </div>
-        <div class="col l2">
-            <h3>Please Upload An Image File</h3>
+        <div class="col l4">
+            <h4> Upload An Image File</h4>
             <form id="form" action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="photo" value="Chose File"><br>
-                <input type="submit" value="Submit">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="photo">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Upload
+                    <i class="material-icons right">cloud_upload</i>
+                </button>
             </form>
         </div>
-        <div class="col l5">
+        <div class="col l4">
             <img src="github-logo.png" alt="github-logo">
         </div>
     </div>

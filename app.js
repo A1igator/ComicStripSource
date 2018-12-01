@@ -33,6 +33,7 @@ app.post('/upload', upload, (req, res) => {
         img: row.img,
         ori: req.file.path.substring(req.file.path.lastIndexOf("/uploads")),
         num: row.num,
+        diff: diff,
         title: row.title
       });
     });
