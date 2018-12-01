@@ -3,23 +3,28 @@ var dhash = require("dhash-image");
 var db = new sqlite3.Database('db.sqlite');
 
 function findTheShit(path, callback) {
-    getDHash(path, (imgHash, err) => {
-        if (imgHash == null) {
-            callback(new Error("bad img format (or missing)", null, null));
-            return;
-        }
-        getAllTheShitFromTheDatabase((err, rows) => {
-            if (err != null) {
-                callback(err, null, null);
+    // open a file called "lenna.png"
+    Jimp.read(path, (err, img) => {
+        if (err) throw err;
+        img.write('./imgtmp.png');
+        getDHash('./imgtmp.png', (imgHash, err) => {
+            if (imgHash == null) {
+                callback(new Error("bad img format (or missing)", null, null));
                 return;
             }
+            getAllTheShitFromTheDatabase((err, rows) => {
+                if (err != null) {
+                    callback(err, null, null);
+                    return;
+                }
 
-            getMinDiffForTheShit(rows, imgHash, (diff, id) => {
-                db.serialize(() => {
-                    let sql = db.prepare("SELECT * FROM Comics WHERE _ROWID_ = $rowid");
-                    sql.get({ $rowid: id }, (err, row) => {
-                        sql.finalize();
-                        callback(err, diff, row);
+                getMinDiffForTheShit(rows, imgHash, (diff, id) => {
+                    db.serialize(() => {
+                        let sql = db.prepare("SELECT * FROM Comics WHERE _ROWID_ = $rowid");
+                        sql.get({ $rowid: id }, (err, row) => {
+                            sql.finalize();
+                            callback(err, diff, row);
+                        });
                     });
                 });
             });
