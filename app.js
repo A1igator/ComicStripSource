@@ -35,8 +35,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
     dhash(req.file.path, (err, hash) => {
       if (!err) {
         console.log(hash.toString('base64'));
-      }
-      else {
+      } else {
         console.log(err);
       }
     });
