@@ -1,34 +1,40 @@
 <!doctype html>
 
 <head>
-    <link rel="stylesheet" href="FrontEndStyling.css">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <title>Coogle</title>
 
 <body>
     <script source="./displayImage.js"> </script>
-    <header>
-        <!--<h1>Coogle</h1>
-        <h1>
-            The worlds best search engine.
-            *for comics
-        </h1>
-         -->
-         <img src = "CooglePng.png" alt = "COOGLE">
-    </header>
-    <ul>
-        <li>
+    <nav class="lime">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img src="CooglePng.png" alt="logo" style="height: 60px; width: auto"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col l5">
             <img src="github-logo.png" alt="github-logo">
-        </li>
-        <li>
-            <h1>Please Upload An Image File</h4>
-                <form id="form" action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="photo" value="Chose File"><br>
-                    <input type="submit" value="Submit">
-                </form>
-        </li>
-        <li>
+        </div>
+        <div class="col l2">
+            <h3>Please Upload An Image File</h3>
+            <form id="form" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="photo" value="Chose File"><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="col l5">
             <img src="github-logo.png" alt="github-logo">
-        </li>
-    </ul>
+        </div>
+    </div>
+
 </body>
