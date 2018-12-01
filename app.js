@@ -5,7 +5,7 @@ const moment = require('moment');
 const multer = require('multer');
 const findShit = require("./findShit.js");
 const upload = multer({ dest: 'public/uploads' }).single('photo');
-const exphbs  = require('express-handlebars');
+const exphbs = require('express-handlebars');
 
 const app = express();
 
@@ -31,11 +31,14 @@ app.post('/upload', upload, (req, res) => {
       res.render("image", {
         img: row.img,
         ori: req.file.path.substring(req.file.path.lastIndexOf("/uploads")),
-        num: row.num
+        num: row.num,
+        title: row.title
       });
     });
   }
 });
+
+console.log("Listening on port 8080");
 
 app.listen(8080);
 
