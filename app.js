@@ -39,6 +39,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
         console.log(err);
       }
     });
+    res.send('file recieved');
   }
 });
 
