@@ -1,15 +1,12 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const moment = require('moment');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' }).single('photo');
+const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,13 +15,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/upload', upload, (req, res) => {
+app.post('/upload', upload.single('photo'), (req, res) => {
   if (!req.file) {
     throw new Error('no file');
   } else {
     const buffer = new Buffer(req.file.path);
-
+    console.log(buffer);
   }
 });
+
+app.listen('8080');
 
 module.exports = app;

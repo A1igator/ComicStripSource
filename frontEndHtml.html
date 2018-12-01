@@ -30,14 +30,15 @@
     height: 20vh;
   }
 </style>
+
 <body>
   <header>Header</header>
   <div id="main">
-    <article> 
-        <form action="fileupload" method="post" enctype="multipart/form-data">
-        <input type="file" name="filetoupload"><br>
+    <article>
+      <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo"><br>
         <input type="submit">
-        </form>
+      </form>
     </article>
     <nav>Nav</nav>
     <aside>Aside</aside>
