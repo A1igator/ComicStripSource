@@ -1,7 +1,5 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const moment = require('moment');
 const multer = require('multer');
 const findShit = require("./findShit.js");
 const upload = multer({ dest: 'public/uploads' }).single('photo');
@@ -13,7 +11,6 @@ app.engine('handlebars', exphbs({}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static('public'));
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
