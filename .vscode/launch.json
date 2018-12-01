@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/buildDatabase.js"
+            "program": "${workspaceFolder}/findShit.js"
         }
     ]
 }
