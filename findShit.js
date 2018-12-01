@@ -3,15 +3,25 @@ var dhash = require("dhash-image");
 var db = new sqlite3.Database('db.sqlite');
 
 function findTheShit(path, callback) {
-    getDHash(path, (imgHash) => {
+    getDHash(path, (imgHash, err) => {
+        if (imgHash == null) {
+            callback(new Error("bad img format (or missing)", null, null));
+            return;
+        }
         getAllTheShitFromTheDatabase((err, rows) => {
             if (err != null) {
-                callback(err, null);
+                callback(err, null, null);
                 return;
             }
 
             getMinDiffForTheShit(rows, imgHash, (diff, id) => {
-                callback(null, diff, id);
+                db.serialize(() => {
+                    let sql = db.prepare("SELECT * FROM Comics WHERE _ROWID_ = $rowid");
+                    sql.get({ $rowid: id }, (err, row) => {
+                        sql.finalize();
+                        callback(err, diff, row);
+                    });
+                });
             });
         });
     });
@@ -32,7 +42,7 @@ function getMinDiffForTheShit(rows, hash, callback, curMin = Infinity, curMinID 
         callback(curMin, curMinID);
         return;
     }
-    
+
     let diff = getTheDiffForTheShit(new Buffer(rows[0].hash, "base64"), hash);
 
     if (diff < curMin) {
@@ -60,10 +70,10 @@ function getAllTheShitFromTheDatabase(callback) {
     });
 }
 
-/* findTheShit("./comic.png", (err, diff, id) => {
+findTheShit("./shawn.jpg", (err, diff, id) => {
     console.log(err);
     console.log(diff);
     console.log(id);
-}); */
+});
 
 module.exports.findTheShit = findTheShit;
