@@ -7,69 +7,25 @@
 <body>
   <header>
       <h1>Coogle</h1>
-      <h1>
+        <h1>
             The worlds best search engine.
             *for comics
         </h1>
   </header>
-      <ul class = "flex-container">
-            <li>
-                <img src="github-logo.png" alt="github-logo">
-            </li>
-            <li> 
-                    <h3>Please Upload An Image File</h3>
-                    <form action="fileupload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="filetoupload"><br>
-                    <input type="submit">
-                    </form>
-            </li>
-            <li>
-                <img src="github-logo.png" alt="github-logo">
-            </li>
-        </ul>       
-<title>Example</title>
-<style>
-  * {
-   box-sizing: border-box; 
-  }
-  body {
-    margin: 0;
-  }
-  #main {
-    display: flex;
-    min-height: calc(100vh - 40vh);
-  }
-  #main > article {
-    flex: 1;
-  }
-  #main > nav, 
-  #main > aside {
-    flex: 0 0 20vw;
-    background: beige;
-  }
-  #main > nav {
-    order: -1;
-  }
-  header, footer, article, nav, aside {
-    padding: 1em;
-  }
-  header, footer {
-    background: yellowgreen;
-    height: 20vh;
-  }
-</style>
+  <ul>
+     <li>
+        <img src="github-logo.png" alt="github-logo">
+    </li>
+    <li> 
+         <h1>Please Upload An Image File</h4>
+            <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="photo"><br>
+                <input type="submit">
+            </form>
 
-<body>
-  <header>Header</header>
-  <div id="main">
-    <article>
-      <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="photo"><br>
-        <input type="submit">
-      </form>
-    </article>
-    <nav>Nav</nav>
-    <aside>Aside</aside>
-  </div>
-  <footer>Footer</footer>
+    </li>
+    <li>
+        <img src="github-logo.png" alt="github-logo">
+    </li>
+   </ul>       
 </body>
