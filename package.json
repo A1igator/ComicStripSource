@@ -1,0 +1,10 @@
+{
+  "name": "ComicStripSource",
+  "version": "1.0.0",
+  "description": "upload comic",
+  "main": "app.js",
+  "repository": "https://github.com/xXAligatorXx/CommitStripSource.git",
+  "author": "Ali Abdoli",
+  "license": "MIT",
+  "private": false
+}

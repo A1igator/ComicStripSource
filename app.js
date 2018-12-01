@@ -28,16 +28,6 @@ app.post('/upload', upload, (req, res) => {
         throw err;
       }
       else {
-
-        const fileContent = text.replace(/\n|\r/g, '');
-        //  TODO SAVE FINAL TEXT IN DATABASE
-        const { fileExt, fileName } = req.query;
-        client.query(`INSERT INTO file_table(file_ext, file_content, file_name) VALUES ('${fileExt}', '${fileContent}', '${fileName}');`, (err, response) => {
-          //  console.log(err, res)
-          res.send(response);
-          //  client.end()
-        });
-
       }
     });
   }
