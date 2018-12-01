@@ -38,5 +38,5 @@
    li{
     list-style: none;
     flex-wrap: nowrap;
-    flex-grow: 3
+    flex: 0 8 2;
    }
