@@ -23,13 +23,7 @@ app.post('/upload', upload, (req, res) => {
     throw new Error('no file');
   } else {
     const buffer = new Buffer(req.file.path);
-    recognize(buffer, (err, text) => {
-      if (err) {
-        throw err;
-      }
-      else {
-      }
-    });
+
   }
 });
 
